@@ -40,9 +40,11 @@ class CatDetail extends StatelessWidget {
                 children: [
                   SpaceConstants.medium.heightWidget,
                   _textWithTitle("Description: ", breed.description),
+                  SpaceConstants.medium.heightWidget,
                   _textWithTitle("Origin: ", breed.origin),
                   _textWithTitle("Intelligence: ", breed.intelligence.toString()),
                   _textWithTitle("Adaptability: ", breed.adaptability.toString()),
+                  _textWithTitle("time span: ", breed.lifeSpan),
                 ],
               )),
             ),

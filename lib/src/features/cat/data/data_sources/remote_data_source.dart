@@ -7,8 +7,7 @@ class RemoteDataSource {
 
   final HttpClientAdapter _client = HttpClientAdapter( host: Config.host);
 
-  Future<String> get(String search, {int limit = 10, int page = 0}) async {
-    //https://api.thecatapi.com/v1/breeds?limit=10&page=0
+  Future<String> get(String search) async {
     String path = "breeds";
     if (search.isNotEmpty){
       path = "$path/search?q=$search";

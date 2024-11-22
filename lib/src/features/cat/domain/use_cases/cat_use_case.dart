@@ -8,9 +8,8 @@ class CatUseCase {
   CatUseCase({required ICatRepository catRepository}) : _catRepository = catRepository;
 
   Future<List<BreedModel>> getBreeds(String search) async {
-    final breends = await  _catRepository.getBreeds(search);
-    final listImage =  await _catRepository.getImages(breends);
-    return listImage;
+    final breeds = await  _catRepository.getBreeds(search);
+    return await _catRepository.getImages(breeds);
   }
 
 }

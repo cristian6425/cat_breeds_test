@@ -1,6 +1,3 @@
-class Constants {
-
-}
 
 class SpaceConstants {
   static const double small = 8.0;

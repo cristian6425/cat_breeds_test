@@ -32,6 +32,7 @@ class BreedsWidget extends StatelessWidget {
               Flexible(
                 child: ListView.builder(
                   keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                  physics: const ClampingScrollPhysics(),
                   itemCount: state.breeds.length,
                   itemBuilder: (BuildContext context, int index) {
                     return card(state.breeds[index], context);

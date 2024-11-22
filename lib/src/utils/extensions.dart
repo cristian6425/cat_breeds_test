@@ -5,7 +5,6 @@ extension DoubleExtension on double {
   Widget get widthWidget => SizedBox(width: this);
 }
 
-
 extension CustomBuildContextExtension on BuildContext{
 
   double get height100 => MediaQuery.of(this).size.height;
@@ -19,6 +18,5 @@ extension CustomBuildContextExtension on BuildContext{
   double get height20 => MediaQuery.of(this).size.height * 0.2;
 
   double get width100 => MediaQuery.of(this).size.width;
-
 
 }

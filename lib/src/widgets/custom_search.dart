@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../utils/constants.dart';
 
 class CustomSearchField extends StatefulWidget {
@@ -8,9 +7,7 @@ class CustomSearchField extends StatefulWidget {
     required this.onChanged,
     required this.onClose,
   });
-
   final ValueChanged<String> onChanged;
-
   final Function onClose;
 
   @override
@@ -18,20 +15,7 @@ class CustomSearchField extends StatefulWidget {
 }
 
 class _CustomSearchFieldState extends State<CustomSearchField> {
-  String _searchText = '';
   final _controller = TextEditingController();
-
-  @override
-  void initState() {
-    _controller.addListener(_listener);
-    super.initState();
-  }
-
-  void _listener() {
-    setState(() {
-      _searchText = _controller.text;
-    });
-  }
 
   @override
   void dispose() {
@@ -60,12 +44,14 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
                   _prefixIcon(),
                   Expanded(
                     child: TextField(
+                      scribbleEnabled: false,
                       controller: _controller,
                       textAlign: TextAlign.start,
                       cursorColor: Colors.black,
                       cursorHeight: 20,
                       cursorWidth: 2,
                       onChanged: widget.onChanged,
+                      autofocus: false,
                       decoration: const InputDecoration(
                         border: InputBorder.none,
                       ),
@@ -90,12 +76,11 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
 
   Widget _suffixIcon() {
     return Visibility(
-      visible: _searchText.isNotEmpty,
+      visible: _controller.value.text.isNotEmpty,
       child: InkWell(
         onTap: () {
           _controller.clear();
           widget.onClose();
-          _searchText = '';
         },
         child: const Padding(
           padding: EdgeInsets.symmetric(vertical: SpaceConstants.small),

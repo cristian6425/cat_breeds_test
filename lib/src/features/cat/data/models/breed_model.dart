@@ -74,8 +74,6 @@ class BreedModel extends Equatable {
 
   static List<BreedModel> breedModelFromJson(String str) => List<BreedModel>.from(json.decode(str).map((x) => BreedModel.fromJson(x)));
 
-  static String breedModelToJson(List<BreedModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
   @override
   List<Object?> get props => [
     id,
